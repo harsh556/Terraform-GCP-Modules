@@ -1,0 +1,26 @@
+module "cloud_function" {
+  source                      = "github.com/GoogleCloudPlatform/cloud-foundation-fabric/modules/cloud-function-v2"
+  for_each                    = var.cloud_function_config
+  project_id                  = each.value.project_id
+  name                        = each.value.name
+  prefix                      = each.value.prefix
+  description                 = each.value.description
+  region                      = each.value.region
+  bucket_name                 = each.value.bucket
+  ingress_settings            = each.value.ingress_settings
+  bucket_config               = each.value.bucket_config
+  bundle_config               = each.value.bundle_config
+  docker_repository_id        = each.value.docker_repository_id
+  build_service_account       = each.value.build_service_account
+  build_worker_pool           = each.value.build_worker_pool
+  build_environment_variables = each.value.build_environment_variables
+  function_config             = each.value.function_config
+  iam                         = each.value.iam
+  trigger_config              = each.value.trigger_config
+  vpc_connector               = each.value.vpc_connector
+  vpc_connector_config        = each.value.vpc_connector_config
+  service_account_create      = each.value.service_account_create
+  service_account             = each.value.service_account
+  secrets                     = each.value.secrets
+  labels                      = each.value.labels
+}
